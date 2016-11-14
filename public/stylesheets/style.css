@@ -1,5 +1,10 @@
+@font-face {
+  font-family: "PT Sans";
+  src: url('../fonts/PTS55F_2.ttf') format('truetype')
+}
+
 body {
-  padding: 50px;
+  padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -19,9 +24,16 @@ a.danger {
 }
 
 .spacing {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 input.ng-invalid.ng-touched {
   border: 1px solid red;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'PT Sans';
+}
+p, div {
+  font-family: 'PT Sans';
 }
