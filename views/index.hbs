@@ -1,0 +1,36 @@
+<!-- Все ссылки предваряются папкой 'public', эта настройка содержится в app.js -->
+<!DOCTYPE html>
+<html>
+<head>
+
+    <base href="/">
+    <title>.Quest - Портал МФЦ</title>
+    <link rel="stylesheet" href="/stylesheets/style.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css"/>
+
+</head>
+<body>
+
+<app-portal>
+    <div class="navbar navbar-fixed-bottom">
+
+        <div class="alert alert-info" role="alert">
+            <span class="glyphicon glyphicon glyphicon-cog" aria-hidden="true"></span>
+            <span class="sr-only">Загрузка:</span>
+            Добро пожаловать на Портал МФЦ Свердловской области! Идет загрузка компонентов, пожалуйста, подождите. <br>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                <span class="sr-only">Загружается</span>
+            </div>
+        </div>
+
+    </div>
+
+</app-portal>
+
+<script src="/js/app/bundle.js"></script>
+</body>
+</html>
