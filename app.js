@@ -12,6 +12,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
+var authRoutes = require('/routes/auth');
 var appRoutes = require('./routes/app');
 
 //- Подключаемся к MongoDB на локальном сервере через Mongoose.JS -//
@@ -49,7 +50,7 @@ app.use(function (req, res, next) {
 });
 
 // Указываем Express.JS как отображать в адресной строке браузера маршруты в приложении
-
+app.use('/auth', authRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);
 

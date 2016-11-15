@@ -4,11 +4,11 @@ import {Component} from "@angular/core";
     template:`
         <div class="row">  
             <div class="col-md-10">            
-                <h2><img alt="МФЦ" src="../img/MD_Sign_Smaller.png" />
-                Корпоративный портал МФЦ Свердловской Области</h2>
+                <img alt="МФЦ" src="../img/MD_Sign_Smaller.png" />
+                Корпоративный портал МФЦ Свердловской Области
             </div>
             <div class="col-md-2">
-                <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>  Вход на Портал
+                <portal-auth></portal-auth>
             </div>
         </div>
     `

@@ -1,6 +1,6 @@
 import {Component} from "@angular/core";
 @Component({
-    selector: 'app-portal',
+    selector: 'portal-main',
     templateUrl: './app.template.html'
 })
 export class AppComponent {
