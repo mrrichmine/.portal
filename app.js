@@ -12,7 +12,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
-var authRoutes = require('/routes/auth');
+var authRoutes = require('./routes/auth');
 var appRoutes = require('./routes/app');
 
 //- Подключаемся к MongoDB на локальном сервере через Mongoose.JS -//
