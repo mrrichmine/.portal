@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 @Component({
     selector: 'portal-auth-signin',
-    template: `<h2>Signin Here</h2>`
+    templateUrl: './signin.component.html'
 })
 export class SigninComponent {
-
+    
 }

@@ -1,7 +1,7 @@
 import {Component} from "@angular/core";
 @Component({
     selector: 'portal-auth-logout',
-    template: `<h2>Logout here</h2>`
+    templateUrl: 'logout.component.html'
 })
 export class LogoutComponent {
 

@@ -16,18 +16,13 @@ var authRoutes = require('./routes/auth');
 var appRoutes = require('./routes/app');
 
 //- Подключаемся к MongoDB на локальном сервере через Mongoose.JS -//
-// mongoose.connect('localhost:27017/portal');
+// mongoose.connect('mongodb://localhost:27017/portal');
 //- Подключаемся к MongoDB на удаленном сервере через Mongoose.JS -//
-mongoose.connect('10.10.0.91:27017/portal');
+mongoose.connect('mongodb://10.10.0.91:27017/portal');
 
 //- Настраиваем Express.JS -//
 // Для удобства создадим переменную
 var app = express();
-
-// Указываем папку для хранения шаблонов отображения
-app.set('views', path.join(__dirname, 'views'));
-// В качестве шаблонизатора используем Handlebars.JS
-app.set('view engine', 'hbs');
 
 // Иконка приложения
 app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -49,15 +44,15 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Указываем Express.JS как отображать в адресной строке браузера маршруты в приложении
+// Указываем Express.JS какие маршруты использовать при попадании в окна
 app.use('/auth', authRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);
 
-// В любой непонятной ситуации №404 отрисовываем следуюущий шаблон Handlebars.JS
-app.use(function (req, res) {
-  return res.render('index');
-});
+// В любой непонятной ситуации №404 производится следующее действие
+// app.use(function (req, res) {
+//   return res.send('index');
+// });
 
 // Экспортируем все это добро как 'app'
 module.exports = app;

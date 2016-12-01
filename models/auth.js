@@ -12,6 +12,8 @@ var schema = new Schema({
   personalPhone: {type: String, required: false},  // Сотовый телефон
   ipPhone: {type: String, required: false}         // IP-телефон
 
+
+
 });
 
-module.exports = mongoose.model('User', schema);
+module.exports = mongoose.model('Auth', schema);

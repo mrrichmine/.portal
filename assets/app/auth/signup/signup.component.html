@@ -1,0 +1,73 @@
+<div class="row">
+    <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="lastName">Фамилия</label>
+                <input
+                        type="text"
+                        id="lastName"
+                        class="form-control"
+                        formControlName="lastName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="firstName">Имя</label>
+                    <input
+                            type="text"
+                            id="firstName"
+                            class="form-control"
+                            formControlName="firstName">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="parentName">Отчество</label>
+                    <input
+                            type="text"
+                            id="parentName"
+                            class="form-control"
+                            formControlName="parentName">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="password">Пароль</label>
+                <input
+                        type="password"
+                        id="password"
+                        class="form-control"
+                        formControlName="password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="personalPhone">Личный телефон</label>
+                    <input
+                            type="number"
+                            id="personalPhone"
+                            class="form-control"
+                            formControlName="personalPhone">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="ipPhone">IP-телефон</label>
+                    <input
+                            type="number"
+                            id="ipPhone"
+                            class="form-control"
+                            formControlName="ipPhone">
+                </div>
+            </div>
+        </div>
+
+        <button
+                class="btn btn-primary"
+                type="submit"
+                [disabled]="!myForm.valid">Зарегистрироваться</button>
+    </form>
+</div>
