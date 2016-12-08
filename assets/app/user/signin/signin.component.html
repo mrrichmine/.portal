@@ -1,5 +1,27 @@
 <div class="row">
-    <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+    <form (ngSubmit)="onSubmit()" (ngReset)="onReset()" [formGroup]="myForm">
+        <div class="row">
+            <div class="col-md-offset-11">
+                <button
+                        class="btn"
+                        type="reset">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button
+                        class="btn"
+                        type="button">
+                    <a [routerLink]="['user']">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <span class="glyphicon glyphicon-alert"></span>
+                Обязательные поля
+            </div>
+        </div>
         <div class="row">
             <div class="col-md-12 form-group">
                 <label for="lastName">Фамилия</label>
@@ -42,32 +64,12 @@
                         formControlName="password">
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="personalPhone">Личный телефон</label>
-                    <input
-                            type="number"
-                            id="personalPhone"
-                            class="form-control"
-                            formControlName="personalPhone">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="ipPhone">IP-телефон</label>
-                    <input
-                            type="number"
-                            id="ipPhone"
-                            class="form-control"
-                            formControlName="ipPhone">
-                </div>
-            </div>
-        </div>
-
+        <br>
         <button
                 class="btn btn-primary"
-                type="submit"
-                [disabled]="!myForm.valid">Зарегистрироваться</button>
+                type="submit">
+            <span class="glyphicon glyphicon-ok"></span>
+            Вход в систему</button>
+        <br>
     </form>
 </div>

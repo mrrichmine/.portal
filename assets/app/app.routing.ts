@@ -1,6 +1,6 @@
 import {Routes, RouterModule} from "@angular/router";
 
-import {AuthComponent} from "./auth/auth.component";
+import {UserComponent} from "./user/user.component";
 import {MenuComponent} from "./header/menu/menu.component";
 
 const APP_ROUTES: Routes = [
@@ -8,9 +8,9 @@ const APP_ROUTES: Routes = [
         component: MenuComponent,
         pathMatch: 'full'
     },
-    {   path: 'auth',
-        component: AuthComponent,
-        loadChildren: './auth/auth.module#AuthModule'
+    {   path: 'user',
+        component: UserComponent,
+        loadChildren: './user/user.module#UserModule'
     }
 ];
 

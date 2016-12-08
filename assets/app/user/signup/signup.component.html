@@ -1,0 +1,116 @@
+<div class="row">
+    <form (ngSubmit)="onSubmit()" (ngReset)="onReset()" [formGroup]="myForm">
+        <div class="row">
+            <div class="col-md-offset-11">
+                <button
+                        class="btn"
+                        type="reset">
+                    <span class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button
+                        class="btn"
+                        type="button">
+                        <a [routerLink]="['user']">
+                            <span class="glyphicon glyphicon-remove"></span>
+                        </a>
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <span class="glyphicon glyphicon-alert"></span>
+                Обязательные поля
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="lastName">Фамилия</label>
+                <input
+                        type="text"
+                        id="lastName"
+                        class="form-control"
+                        formControlName="lastName">
+            </div>
+
+            <div class="col-md-4 form-group">
+                <label for="firstName">Имя</label>
+                <input
+                        type="text"
+                        id="firstName"
+                        class="form-control"
+                        formControlName="firstName">
+            </div>
+            <div class="col-md-4 form-group">
+                <label for="parentName">Отчество</label>
+                <input
+                        type="text"
+                        id="parentName"
+                        class="form-control"
+                        formControlName="parentName">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="birthDate">Дата рождения</label>
+                <input
+                        type="date"
+                        min="1900-01-01"
+                        max="2099-12-31"
+                        id="birthDate"
+                        placeholder="дд.мм.гггг"
+                        class="form-control"
+                        formControlName="birthDate">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <label for="password">Пароль</label>
+                <input
+                        type="password"
+                        id="password"
+                        placeholder="Не менее 6 знаков"
+                        class="form-control"
+                        formControlName="password">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <span class="glyphicon glyphicon-scale"></span>
+                Дополнительные поля
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="personalPhone">Личный телефон</label>
+                    <input
+                            type="tel"
+                            id="personalPhone"
+                            placeholder="В формате 8-***-***-**-**"
+                            class="form-control"
+                            formControlName="personalPhone">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="ipPhone">IP-телефон</label>
+                    <input
+                            type="tel"
+                            id="ipPhone"
+                            placeholder="Дирекция: 3 знака / Филиалы: 4 знака"
+                            class="form-control"
+                            formControlName="ipPhone">
+                </div>
+            </div>
+        </div>
+        <br>
+        <button
+                class="btn btn-success"
+                type="submit"
+                [disabled]="!myForm.valid">
+                <span class="glyphicon glyphicon-ok"></span>
+                Зарегистрироваться</button>
+        <br>
+    </form>
+</div>

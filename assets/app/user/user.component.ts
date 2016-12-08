@@ -1,8 +1,8 @@
 import {Component} from "@angular/core";
 @Component({
     selector: 'portal-auth',
-    templateUrl: './auth.component.html'
+    templateUrl: 'user.component.html'
 })
-export class AuthComponent {
+export class UserComponent {
 
 }

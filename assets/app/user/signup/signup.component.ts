@@ -1,8 +1,8 @@
 import {Component, OnInit}                  from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 
-import {AuthService}        from "../auth.service";
-import {User}               from "../auth.model"
+import {UserService}        from "../user.service";
+import {User}               from "../user.model"
 
 @Component({
     selector: 'portal-auth-signup',
@@ -11,19 +11,25 @@ import {User}               from "../auth.model"
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
 
-    constructor(private authService: AuthService) {}
+
+    constructor(private userService: UserService) {}
 
     onSubmit() {
-        console.log('onSubmit clicked');
+        // console.log('onSubmit clicked');
+        // Собираем уникальный идентификатор для пользователя из его ФИО
+        let fullName = this.myForm.value.firstName.concat(' ', this.myForm.value.parentName, ' ', this.myForm.value.lastName);
+
         const user = new User(
+            fullName,
+            this.myForm.value.password,
             this.myForm.value.firstName,
             this.myForm.value.lastName,
             this.myForm.value.parentName,
-            this.myForm.value.password,
+            this.myForm.value.birthDate,
             this.myForm.value.personalPhone,
             this.myForm.value.ipPhone
         );
-        this.authService.signup(user)
+        this.userService.signup(user)
             .subscribe(
                 data => console.log(data),
                 error => console.log(error)
@@ -31,12 +37,19 @@ export class SignupComponent implements OnInit {
         this.myForm.reset();
     }
 
+    onReset() {
+        console.log('onReset clicked');
+        this.myForm.reset();
+    }
+
     ngOnInit() {
         this.myForm = new FormGroup({
+            fullName:       new FormControl(null, [ ] ),
+            password:       new FormControl(null, [ Validators.required, Validators.minLength(6)] ),
             firstName:      new FormControl(null, [ Validators.required, Validators.pattern('^[А-Яа-яЁё]+$') ]),
             lastName:       new FormControl(null, [ Validators.required, Validators.pattern('^[А-Яа-яЁё]+$')] ),
             parentName:     new FormControl(null, [ Validators.required, Validators.pattern('^[А-Яа-яЁё]+$')] ),
-            password:       new FormControl(null, [ Validators.required, Validators.minLength(6)] ),
+            birthDate:      new FormControl(null, [ ] ),
             personalPhone:  new FormControl(null, [ ] ),
             ipPhone:        new FormControl(null, [ ] )
         });
