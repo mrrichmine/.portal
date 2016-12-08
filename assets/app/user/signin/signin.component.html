@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 form-group">
+            <div class="col-md-4 form-group">
                 <label for="lastName">Фамилия</label>
                 <input
                         type="text"
@@ -31,42 +31,52 @@
                         class="form-control"
                         formControlName="lastName">
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="firstName">Имя</label>
-                    <input
-                            type="text"
-                            id="firstName"
-                            class="form-control"
-                            formControlName="firstName">
-                </div>
+
+            <div class="col-md-4 form-group">
+                <label for="firstName">Имя</label>
+                <input
+                        type="text"
+                        id="firstName"
+                        class="form-control"
+                        formControlName="firstName">
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="parentName">Отчество</label>
-                    <input
-                            type="text"
-                            id="parentName"
-                            class="form-control"
-                            formControlName="parentName">
-                </div>
+            <div class="col-md-4 form-group">
+                <label for="parentName">Отчество</label>
+                <input
+                        type="text"
+                        id="parentName"
+                        class="form-control"
+                        formControlName="parentName">
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 form-group">
+            <div class="col-md-4 form-group">
+                <label for="birthDate">Дата рождения</label>
+                <input
+                        type="date"
+                        min="1900-01-01"
+                        max="2099-12-31"
+                        id="birthDate"
+                        placeholder="дд.мм.гггг"
+                        class="form-control"
+                        formControlName="birthDate">
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
                 <label for="password">Пароль</label>
                 <input
                         type="password"
                         id="password"
+                        placeholder="Не менее 6 знаков"
                         class="form-control"
                         formControlName="password">
             </div>
         </div>
         <br>
         <button
-                class="btn btn-primary"
+                class="btn btn-success"
                 type="submit">
             <span class="glyphicon glyphicon-ok"></span>
             Вход в систему</button>

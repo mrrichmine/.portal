@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 });
 
 router.post('/signin', function(req, res) {
-  User.findOne({fullName: req.body.fullName}, function(err, user) {
+  User.findOne({fullName: req.body.lastName.concat(req.body.firstName, req.body.parentName)}, function(err, user) {
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
