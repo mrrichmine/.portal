@@ -15,7 +15,6 @@ export class SignupComponent implements OnInit {
     constructor(private userService: UserService) {}
 
     onSubmit() {
-        // console.log('onSubmit clicked');
         // Собираем уникальный идентификатор для пользователя из его ФИО
         let fullName = this.myForm.value.firstName.concat(' ', this.myForm.value.parentName, ' ', this.myForm.value.lastName);
 
@@ -38,7 +37,6 @@ export class SignupComponent implements OnInit {
     }
 
     onReset() {
-        console.log('onReset clicked');
         this.myForm.reset();
     }
 
