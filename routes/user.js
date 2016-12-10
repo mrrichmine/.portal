@@ -8,7 +8,7 @@ var User = require('../models/user');
 // Добавление нового пользователя
 router.post('/', function (req, res) {
   var user = new User({
-    fullName: req.body.lastName.concat(req.body.firstName, req.body.parentName),
+    fullName: req.body.lastName.concat('', req.body.firstName, '', req.body.parentName, '', req.body.birthDate),
     password: bcrypt.hashSync(req.body.password, 10),
     firstName: req.body.firstName,
     lastName: req.body.lastName,
@@ -32,7 +32,7 @@ router.post('/', function (req, res) {
 });
 
 router.post('/signin', function(req, res) {
-  User.findOne({fullName: req.body.lastName.concat(req.body.firstName, req.body.parentName)}, function(err, user) {
+  User.findOne({fullName: req.body.lastName.concat('', req.body.firstName, '', req.body.parentName, '', req.body.birthDate)}, function(err, user) {
     if (err) {
       return res.status(500).json({
         title: 'An error occurred',
