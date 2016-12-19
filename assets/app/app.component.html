@@ -3,6 +3,7 @@
             <portal-header></portal-header>
         </div>
     </div>
+
     <div class="container">
         <div class="row">
             <div class="jumbotron">
@@ -10,6 +11,14 @@
             </div>
         </div>
     </div>
+
+    <div class="container" *ngIf="isLoggedIn()">
+        <div class="row">
+            <div class="jumbotron">
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <portal-footer></portal-footer>

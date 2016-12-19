@@ -1,8 +1,9 @@
 import {Component, OnInit}                  from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {Router}                             from "@angular/router";
 
-import {UserService}        from "../user.service";
-import {User}               from "../user.model"
+import {User}           from "../user.model"
+import {UserService}    from "../user.service";
 
 @Component({
     selector: 'portal-auth-signup',
@@ -11,12 +12,15 @@ import {User}               from "../user.model"
 export class SignupComponent implements OnInit {
     myForm: FormGroup;
 
+    constructor(private userService: UserService, private router: Router) {}
 
-    constructor(private userService: UserService) {}
+    onReturn() {
+        this.router.navigateByUrl('/');
+    }
 
     onSubmit() {
         // Собираем уникальный идентификатор для пользователя из его ФИО
-        let fullName = this.myForm.value.firstName.concat(' ', this.myForm.value.parentName, ' ', this.myForm.value.lastName);
+        const fullName = this.myForm.value.firstName.concat(' ', this.myForm.value.parentName, ' ', this.myForm.value.lastName);
 
         const user = new User(
             fullName,
@@ -30,7 +34,10 @@ export class SignupComponent implements OnInit {
         );
         this.userService.signup(user)
             .subscribe(
-                data => console.log(data),
+                data => {
+                    console.log(data);
+                    this.router.navigateByUrl('/')
+                },
                 error => console.log(error)
             );
         this.myForm.reset();

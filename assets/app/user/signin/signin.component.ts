@@ -1,10 +1,9 @@
-import {Component} from "@angular/core";
+import {Component, OnInit}                  from "@angular/core";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {Router} from "@angular/router";
+import {Router}                             from "@angular/router";
 
-import {User} from "../user.model"
-import {UserService} from "../user.service";
-import {OnInit} from "../../../../node_modules/@angular/core/src/metadata/lifecycle_hooks";
+import {User}           from "../user.model"
+import {UserService}    from "../user.service";
 
 @Component({
     selector: 'portal-auth-signin',
@@ -15,11 +14,13 @@ export class SigninComponent implements OnInit{
 
     constructor(private userService: UserService, private router: Router) {}
 
+    onReturn() {
+        this.router.navigateByUrl('/');
+    }
 
     onSubmit() {
-        // console.log('onSubmit clicked');
         // Собираем уникальный идентификатор для пользователя из его ФИО
-        const fullName = this.myForm.value.firstName.concat(this.myForm.value.parentName, this.myForm.value.lastName);
+        const fullName = this.myForm.value.firstName.concat(' ', this.myForm.value.parentName, ' ', this.myForm.value.lastName);
 
         const user = new User(
             fullName,
@@ -27,9 +28,7 @@ export class SigninComponent implements OnInit{
             this.myForm.value.firstName,
             this.myForm.value.lastName,
             this.myForm.value.parentName,
-            this.myForm.value.birthDate,
-        //   this.myForm.value.personalPhone,
-        //   this.myForm.value.ipPhone
+            this.myForm.value.birthDate
         );
         this.userService.signin(user)
             .subscribe(
