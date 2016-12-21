@@ -62,11 +62,17 @@ router.post('/signin', function(req, res) {
 });
 
 // Информация о пользователе
-router.post('/userdata', function (req, res) {
-  User.findOne({_id: req.body.userid}, function (err, result) {
+router.get('/:id', function (req, res) {
+  User.findOne({_id: req.params.id}, function (err, result) {
     if (err) {
       return res.status(500).json({
         title: 'При получении информации о пользователе возникла ошибка соединения. Проверьте свое интернет-соединение и при необходимости обратитесь к Администратору.',
+        error: err
+      });
+    }
+    if (!result) {
+      return res.status(404).json({
+        title: 'Данные не найдены',
         error: err
       });
     }

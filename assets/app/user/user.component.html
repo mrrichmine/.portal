@@ -1,4 +1,4 @@
-<div *ngIf="isLoggedIn()">Добро пожаловать, {{userid?.fullName}}!<br></div>
+<div *ngIf="isLoggedIn()">Добро пожаловать, {{user?.firstName}} {{user?.parentName}}!<br></div>
 <ul>
     <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signup']"><span class="glyphicon glyphicon-flash"></span> Регистрация</a></li>
     <li routerLinkActive="active" *ngIf="!isLoggedIn()"><a [routerLink]="['signin']"><span class="glyphicon glyphicon-log-in"></span> Вход в систему</a></li>

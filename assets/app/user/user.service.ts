@@ -4,7 +4,6 @@ import 'rxjs/Rx';
 import { Observable } from "rxjs";
 
 import { User } from "./user.model";
-import { Userid } from "./userid.model";
 
 @Injectable()
 export class UserService {
@@ -26,11 +25,10 @@ export class UserService {
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
-    userdata(userid: Userid) {
-        const body = JSON.stringify(userid);
+    userdata(userId) {
         const headers = new Headers({'Content-Type': 'application/json'});
-        return this.http.post('http://10.10.3.158:3000/user/userdata', body, {headers: headers})
-            .map((response: Response) => response.json())
+        return this.http.get('http://10.10.3.158:3000/user/' + userId, {headers: headers})
+            .map((response: Response) => response.json().user as User)
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
