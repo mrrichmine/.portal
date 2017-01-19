@@ -6,6 +6,7 @@
 body {
   padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: url("../img/background.png") repeat;
 }
 
 a {
@@ -32,8 +33,13 @@ input.ng-invalid.ng-touched {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'PT Sans';
+  font-family: "PT Sans";
 }
+
 p, div {
-  font-family: 'PT Sans';
+  font-family: "PT Sans";
+}
+
+:host{
+  display: block
 }

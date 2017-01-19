@@ -1,0 +1,8 @@
+<div>
+    На данной странице Вы можете обрезать фотографию под размер 21/30 (фотография на водительское удостоверение)<hr>
+    Для сохранения готового изображениия нажмите на нем правой кнопкой мыши и выберите пункт меню "Сокранить как"<hr>
+</div>
+<div>
+    <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
+    <div class="col-md-6"><hr><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight"></div>
+</div>

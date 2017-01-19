@@ -1,0 +1,6 @@
+<div class="nav nav-pills">
+    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['user'] } }]"><span class="glyphicon glyphicon-flash"></span>Вход в систему</a></a>
+    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['cropper'] } }]"><span class="glyphicon glyphicon-camera"></span>Обрезка изображений</a></a>
+</div>
+<hr>
+<router-outlet name="featuredetails"></router-outlet>

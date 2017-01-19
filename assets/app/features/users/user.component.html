@@ -1,0 +1,8 @@
+<div *ngIf="isLoggedIn()">
+    <div class="row">Добро пожаловать на наш уютный портал,<br>{{user?.firstName}} {{user?.parentName}}!</div><br>
+    <div class="row"><a routerLinkActive="active"><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Выход из системы</a></a></div>
+</div>
+<div *ngIf="!isLoggedIn()">
+    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { popup: ['signin'] } }]"><span class="glyphicon glyphicon-log-in"></span> Вход на Портал</a></a><br>
+    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { popup: ['signup'] } }]"><span class="glyphicon glyphicon-flash"></span> Регистрация</a></a>
+</div>

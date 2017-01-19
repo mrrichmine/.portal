@@ -9,10 +9,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+// var passport = require('passport');
 var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
 var userRoutes = require('./routes/user');
+var newsRoutes = require('./routes/news');
 var appRoutes = require('./routes/app');
 
 //- Подключаемся к MongoDB на локальном сервере через Mongoose.JS -//
@@ -24,17 +26,14 @@ mongoose.connect('mongodb://10.10.0.91:27017/portal');
 // Для удобства создадим переменную
 var app = express();
 
-// Иконка приложения
-app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-
-// Указываем Express.JS на объекты для инициализации при запуске
-app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-
 // Задаем папку, доступную из фронтенда
 app.use(express.static(path.join(__dirname, 'public')));
+// Иконка приложения
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// Указываем Express.JS на объекты для инициализации при запуске
+app.use(logger('dev'));
+app.use(cookieParser());
+app.use(bodyParser.json());
 
 // Задаем заголовки для данных из ответов(response)
 app.use(function (req, res, next) {
@@ -46,6 +45,7 @@ app.use(function (req, res, next) {
 
 // Указываем Express.JS какие маршруты использовать при попадании в окна
 app.use('/user', userRoutes);
+app.use('/news', newsRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);
 
