@@ -9,7 +9,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-// var passport = require('passport');
 var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
@@ -48,6 +47,7 @@ app.use('/user', userRoutes);
 app.use('/news', newsRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);
+app.use('*', appRoutes);
 
 // В любой непонятной ситуации №404 производится следующее действие
 // app.use(function (req, res) {

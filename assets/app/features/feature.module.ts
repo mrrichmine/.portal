@@ -2,6 +2,7 @@ import {NgModule}               from "@angular/core";
 import {CommonModule}           from "@angular/common";
 import {RouterModule}           from "@angular/router";
 
+import {ViewModule}             from "../views/view.module";
 import {UserModule}             from "./users/user.module";
 
 import {FeatureComponent}       from "./feature.component";

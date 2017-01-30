@@ -7,15 +7,15 @@ import {SigninComponent}        from "./signin/signin.component";
 const USER_ROUTING: Routes = [
     {   path: 'signup',
         component: SignupComponent,
-        outlet: 'popup'
+        outlet: 'featuredetails'
     },
     {   path: 'signin',
         component: SigninComponent,
-        outlet: 'popup'
+        outlet: 'featuredetails'
     },
     {   path: '',
         component: BlankComponent,
-        outlet: 'popup',
+        outlet: 'featuredetails',
         pathMatch: 'full'
     }
 ];

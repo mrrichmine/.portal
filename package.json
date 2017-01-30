@@ -31,8 +31,6 @@
     "mongoose-unique-validator": "1.0.2",
     "morgan": "1.6.1",
     "ng2-img-cropper": "^0.7.7",
-    "passport": "0.3.2",
-    "passport-oauth": "1.0.0",
     "reflect-metadata": "0.1.3",
     "rxjs": "5.0.1",
     "serve-favicon": "2.3.0",

@@ -24,11 +24,14 @@ export class UserComponent implements OnInit{
 
     ngOnInit() {
         const userId = localStorage.getItem('userId');
-        this.userService.getUserdata(userId)
-            .subscribe(
-                (user: User) => {
-                    this.user = user;
-                }
-            );
+        if (userId != null) {
+            this.userService.getUserdata(userId)
+                .subscribe(
+                    (user: User) => {
+                        this.user = user;
+                    }
+                );
+            return this.user;
+        }
     }
 }

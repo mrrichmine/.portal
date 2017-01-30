@@ -1,6 +1,14 @@
 <div class="nav nav-pills">
-    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['user'] } }]"><span class="glyphicon glyphicon-flash"></span>Вход в систему</a></a>
-    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['cropper'] } }]"><span class="glyphicon glyphicon-camera"></span>Обрезка изображений</a></a>
+    Добро пожаловать на наш уютный Портал!
+    <hr>
+    <div *ngIf="!isLoggedIn()">
+        <a routerLinkActive="active" ><a [routerLink]="[{ outlets: { featuredetails: ['user'] } }]"><span class="glyphicon glyphicon-user"></span> Вход в систему</a></a>
+    </div>
+    <div *ngIf="isLoggedIn()">
+        <a routerLinkActive="active" ><a [routerLink]="[{ outlets: { featuredetails: ['user'] } }]"><span class="glyphicon glyphicon-user"></span> Пользователь: {{user?.firstName}} {{user?.parentName}} {{user?.lastName}}</a></a>
+    </div>
+    <div>
+    <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['cropper'] } }]"><span class="glyphicon glyphicon-camera"></span> Прием документов на замену Водительского Удостоверения</a></a>
+    </div>
 </div>
-<hr>
 <router-outlet name="featuredetails"></router-outlet>
