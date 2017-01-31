@@ -1,7 +1,8 @@
 <div class="row jumbotron">
     <form (ngSubmit)="onSubmit()" (ngReset)="onReset()" [formGroup]="myForm">
         <div class="row">
-            <div class="col-md-offset-11">
+            <div class="col-md-10"><h3 class="circe">РЕГИСТРАЦИЯ</h3></div>
+            <div class="col-md-2">
                 <button
                         class="btn"
                         type="reset">
@@ -60,7 +61,9 @@
                         id="birthDate"
                         placeholder="дд.мм.гггг"
                         class="form-control"
-                        formControlName="birthDate">
+                        formControlName="birthDate"
+                        value="__.__.____"
+                >
             </div>
 
         </div>

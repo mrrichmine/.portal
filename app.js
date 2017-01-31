@@ -25,6 +25,10 @@ mongoose.connect('mongodb://10.10.0.91:27017/portal');
 // Для удобства создадим переменную
 var app = express();
 
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'hbs');
+
 // Задаем папку, доступную из фронтенда
 app.use(express.static(path.join(__dirname, 'public')));
 // Иконка приложения
@@ -33,6 +37,7 @@ app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 // Задаем заголовки для данных из ответов(response)
 app.use(function (req, res, next) {
@@ -47,12 +52,11 @@ app.use('/user', userRoutes);
 app.use('/news', newsRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);
-app.use('*', appRoutes);
 
 // В любой непонятной ситуации №404 производится следующее действие
-// app.use(function (req, res) {
-//   return res.send('index');
-// });
+app.use(function (req, res) {
+  res.render('index');
+});
 
 // Экспортируем все это добро как 'app'
 module.exports = app;

@@ -21,11 +21,11 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                loader: 'html-loader'
+                loader: 'html'
             },
             {
                 test: /\.css$/,
-                loader: 'raw-loader'
+                loader: 'raw'
             }
         ]
     },

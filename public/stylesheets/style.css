@@ -3,6 +3,15 @@
   src: url('../fonts/PTS55F_2.ttf') format('truetype')
 }
 
+@font-face {
+  font-family: "Circe Extra Bold";
+  src: url('../fonts/CRC75_0.otf') format('opentype')
+}
+
+.circe {
+  font-family: "Circe Extra Bold";
+}
+
 body {
   padding: 15px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
