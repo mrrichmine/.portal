@@ -16,7 +16,7 @@ export class FeatureComponent implements OnInit{
         return this.userService.isLoggedIn()
     }
 
-    ngOnInit() {
+    getUserId(){
         const userId = localStorage.getItem('userId');
         if (userId != null) {
             this.userService.getUserdata(userId)
@@ -27,5 +27,9 @@ export class FeatureComponent implements OnInit{
                 );
             return this.user;
         }
+    }
+
+    ngOnInit() {
+        this.getUserId();
     }
 }
