@@ -52,12 +52,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mrrichmine/.quest.git"
+    "url": "git+https://github.com/mrrichmine/.portal.git"
   },
   "author": "mrrichmine",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/mrrichmine/.quest/issues"
+    "url": "https://github.com/mrrichmine/.portal/issues"
   },
-  "homepage": "https://github.com/mrrichmine/.quest#readme"
+  "homepage": "https://github.com/mrrichmine/.portal#readme"
 }
