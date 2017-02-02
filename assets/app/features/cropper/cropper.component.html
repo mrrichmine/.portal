@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/stylesheets/cropper.css"/>
 <div class="jumbotron">
     <div class="row"><h3 class="circe">ПРИЕМ ДОКУМЕНТОВ НА ЗАМЕНУ ВОДИТЕЛЬСКОГО УДОСТОВЕРЕНИЯ</h3></div>
     <br>
@@ -50,7 +51,10 @@
         <div *ngIf="showSpoiler2_1()">
             <br>
             <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
-            <div class="col-md-6"><hr><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight"></div>
+            <div class="col-md-6">
+                <hr>
+                <div class="lay"><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight"></div>
+            </div>
             <br>
         </div>
     </div>
