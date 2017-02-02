@@ -6,6 +6,19 @@
         <h4>Добро пожаловать на страницу, которая поможет Вам подготовить файлы фотографии и подписи заявителя для замены водительского удостоверения.</h4>
     </div>
     <div>
+        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="!showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button>
+        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button><br>
+        <div *ngIf="showSpoiler2_1()">
+            <br>
+            <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
+            <div class="col-md-6">
+                <hr>
+                <div class="lay"><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Выберите фотографию"></div>
+            </div>
+            <br>
+        </div>
+    </div>
+    <div>
         <br>
         <h3>Шаг №1 - Делаем фотографию заявителя</h3><br>
         <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="!showSpoiler1()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Нажмите для подробной инструкции</button>
@@ -44,17 +57,6 @@
             2.3. Для сохранения готового изображениия щелкните по нему правой кнопкой мыши и выберите пункт меню "Сохранить как..", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
             <br>
             <img src="/gif/y1np2rHUzF.gif" width="1019" height="623" />
-            <br>
-        </div>
-        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="!showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Открыть окно обрезки изображений</button>
-        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Скрыть окно обрезки</button><br>
-        <div *ngIf="showSpoiler2_1()">
-            <br>
-            <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
-            <div class="col-md-6">
-                <hr>
-                <div class="lay"><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight"></div>
-            </div>
             <br>
         </div>
     </div>
