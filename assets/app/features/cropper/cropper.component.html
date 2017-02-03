@@ -5,87 +5,119 @@
     <div>
         <h4>Добро пожаловать на страницу, которая поможет Вам подготовить файлы фотографии и подписи заявителя для замены водительского удостоверения.</h4>
     </div>
-    <div>
-        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="!showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button>
-        <button class="btn btn-primary" (click)="switchSpoiler2_1()" *ngIf="showSpoiler2_1()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button><br>
-        <div *ngIf="showSpoiler2_1()">
-            <br>
-            <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
-            <div class="col-md-6">
-                <hr>
-                <div class="lay"><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt="Выберите фотографию"></div>
+    <div class="row">
+        <div class="jumbotron">
+            <div class="col-md-5">
+                <button class="btn btn-primary btn-block" (click)="switchSpoiler2_1()" *ngIf="!showSpoiler2_1()"><span class="glyphicon glyphicon-chevron-down"></span> Минимальные требования к рабочему месту <span class="glyphicon glyphicon-list-alt"></span></button>
+                <button class="btn btn-primary btn-block" (click)="switchSpoiler2_1()" *ngIf="showSpoiler2_1()"><span class="glyphicon glyphicon-chevron-up"></span> Минимальные требования к рабочему месту <span class="glyphicon glyphicon-list-alt"></span></button><br>
             </div>
             <br>
         </div>
-    </div>
-    <div>
-        <br>
-        <h3>Шаг №1 - Делаем фотографию заявителя</h3><br>
-        <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="!showSpoiler1()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Нажмите для подробной инструкции</button>
-        <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="showSpoiler1()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Нажмите для скрытия инструкции</button><br>
-        <div *ngIf="showSpoiler1()">
-            Для этого Вам потребуется программа Logitech Webcam Software. Если на Вашем ПК она еще не установлена нажмите
-            <a href="http://support.logitech.com/ru_ru/product/hd-webcam-c615#imagegallery"><span class="glyphicon glyphicon-share-alt"></span> Страница загрузки Logitech C615</a><br>
-            <br>
-            1.1. Кликните по значку "Пуск", в списке установленных программ найдите Logitech Webcam Software и откройте двойным щелчком мыши по нему
-            <br>
-            <img src="/gif/5kdFb8CdSa.gif" width="310" height="521" />
-            <br>
-            1.2. Выберите "Съемка", зафиксируйте камеру в положении при котором лицо заявителя занимает 80% высоты изображения и нажмите на значок съемки <span class="glyphicon glyphicon glyphicon-camera"></span>
-            <br>
-            Нажмите на фотографии "Перейти к файлу" - Вас переместит в соответствующую папку, измените имя файла на "ФамилиюИмяОтчество" заявителя
-            <br>
-            <img src="/gif/KdxcD6QwlI.gif" width="898" height="710" />
-            <br>
+        <div class="jumbotron" *ngIf="showSpoiler2_1()">
+            <ul class="list-group">
+                <li class="list-group-item"><span class="glyphicon glyphicon-hdd"></span> Персональный компьютер</li>
+                <li class="list-group-item"><span class="glyphicon glyphicon-phone"></span> Цифровой планшет для подписи<br><a download href="/files/MakeSign.7z"><span class="glyphicon glyphicon-share-alt"></span> Страница загрузки MakeSign</a></li>
+                <li class="list-group-item"><span class="glyphicon glyphicon-camera"></span> Веб-камера<br><a href="http://support.logitech.com/ru_ru/product/hd-webcam-c615#imagegallery"><span class="glyphicon glyphicon-share-alt"></span> Страница загрузки Logitech Webcam Software</a><br></li>
+                <li class="list-group-item"><span class="glyphicon glyphicon-blackboard"></span> Монотонный серый фон</li>
+                <li class="list-group-item"><span class="glyphicon glyphicon-erase"></span> Флеш-носитель</li>
+            </ul>
         </div>
     </div>
-    <div>
-        <br>
-        <h3>Шаг №2 - Обрезаем фотографию заявителя</h3><br>
-        <button class="btn btn-primary" (click)="switchSpoiler2()" *ngIf="!showSpoiler2()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Нажмите для подробной инструкции</button>
-        <button class="btn btn-primary" (click)="switchSpoiler2()" *ngIf="showSpoiler2()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Нажмите для скрытия инструкции</button><br>
-        <div *ngIf="showSpoiler2()">
-            <br>
-            Сейчас Вам необходимо обрезать фотографию под размер 21/30.
-            <br>
-            2.1. Нажмите "Обзор"/"Выберите файл", найдите фотографию заявителя и выберите её двойным щелчком левой кнопки мыши.
-            <br>
-            Выбрав фотографию вы можете: перемещать окно изображения используя <span class="glyphicon glyphicon-fullscreen"></span> в центре изображения, растягивать и уменьшать потянув за края
-            <br>
-            <img src="/gif/94XhF9Ch3k.gif" width="1130" height="619" />
-            <br>
-            2.3. Для сохранения готового изображениия щелкните по нему правой кнопкой мыши и выберите пункт меню "Сохранить как..", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
-            <br>
-            <img src="/gif/y1np2rHUzF.gif" width="1019" height="623" />
+    <div class="row">
+        <div class="jumbotron">
+            <div class="col-md-5">
+                <button class="btn btn-primary btn-block" (click)="switchSpoiler2_2()" *ngIf="!showSpoiler2_2()"><span class="glyphicon glyphicon-chevron-down"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button>
+                <button class="btn btn-primary btn-block" (click)="switchSpoiler2_2()" *ngIf="showSpoiler2_2()"><span class="glyphicon glyphicon-chevron-up"></span> Обрезка изображений под требования МВД <span class="glyphicon glyphicon glyphicon-camera"></span></button>
+            </div>
             <br>
         </div>
-    </div>
-    <div>
-        <br>
-        <h3>Шаг №3 - Считываем подпись заявителя</h3><br>
-        <button class="btn btn-primary" (click)="switchSpoiler3()" *ngIf="!showSpoiler3()"><span class="glyphicon glyphicon glyphicon-chevron-down"></span> Нажмите для подробной инструкции</button>
-        <button class="btn btn-primary" (click)="switchSpoiler3()" *ngIf="showSpoiler3()"><span class="glyphicon glyphicon glyphicon-chevron-up"></span> Нажмите для скрытия инструкции</button><br>
-        <div *ngIf="showSpoiler3()">
-            <br>
-            Для этого Вам потребуется программа MakeSign. Если на Вашем ПК она еще не установлена нажмите
-            <a download href="/files/MakeSign.7z"><span class="glyphicon glyphicon-share-alt"></span> Архив MakeSign</a>
-            <br>
-            Разархивируйте его с помощью 7z
-            <br>
-            <img src="/gif/32LBdqfXVe.gif" width="872" height="280" />
-            <br>
-            3.1. Откройте папку и запустите run.exe
-            <br>
-            <img src="/gif/TN4pHeIrjw.gif" width="872" height="280" />
-            <br>
-            3.2. Нажмите "Сделать подпись" и попросите заявителя расписаться на планшете, после чего нажмите "ОК"
-            <br>
-            <img src="/gif/sG5CECm4kW.gif" width="872" height="562" />
-            <br>
-            3.3. Нажмите "Сохранить", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
-            <br>
-            <img src="/gif/HwuPvprpxy.gif" width="878" height="403" />
-            <br>
+        <div class="jumbotron" *ngIf="showSpoiler2_2()">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    Нажмите "Обзор"/"Выберите файл", выберите фотографию заявителя и щелкните её двойным щелчком левой кнопки мыши.<br>
+                    Выбрав фотографию вы можете: перемещать окно изображения используя <span class="glyphicon glyphicon-move"></span> в центре изображения, растягивать и уменьшать потянув за края.<br>
+                    Щелкните на готовом изображении правой кнопкой мыши и выберите пункт меню "Сохранить как", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
+                </li>
+            </ul>
+            <div class="col-md-6"><img-cropper [image]="data" [settings]="cropperSettings"></img-cropper></div>
+            <div class="col-md-6">
+                <hr>
+                <div class="lay"><img [src]="data.image" [width]="cropperSettings.croppedWidth" [height]="cropperSettings.croppedHeight" alt=""></div>
+            </div>
         </div>
     </div>
+    <ul class="list-group">
+        <li class="list-group-item">
+            <div>
+                <h4 class="circe">ШАГ №1 - ДЕЛАЕМ ФОТОГРАФИЮ ЗАЯВИТЕЛЯ</h4>
+                <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="!showSpoiler1()"><span class="glyphicon glyphicon-info-sign"></span> Видеоинструкция по шагу №1 </button>
+                <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="showSpoiler1()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №1 </button>
+                <div *ngIf="showSpoiler1()">
+                    <br>
+                    1.1. Кликните по значку "Пуск", в списке установленных программ найдите Logitech Webcam Software и откройте двойным щелчком мыши по нему
+                    <br>
+                    <img src="/gif/5kdFb8CdSa.gif" width="310" height="521" />
+                    <br>
+                    1.2. Выберите "Съемка", зафиксируйте камеру в положении при котором лицо заявителя занимает 80% высоты изображения и нажмите на значок съемки <span class="glyphicon glyphicon-camera"></span>
+                    <br>
+                    Нажмите на фотографии "Перейти к файлу" - Вас переместит в соответствующую папку, измените имя файла на "ФамилиюИмяОтчество" заявителя
+                    <br>
+                    <img src="/gif/KdxcD6QwlI.gif" width="898" height="710" />
+                    <br>
+                </div>
+                <button class="btn btn-primary" (click)="switchSpoiler1()" *ngIf="showSpoiler1()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №1 </button>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <h4 class="circe">ШАГ №2 - ОБРЕЗАЕМ ФОТОГРАФИЮ ЗАЯВИТЕЛЯ</h4>
+                <button class="btn btn-primary" (click)="switchSpoiler2()" *ngIf="!showSpoiler2()"><span class="glyphicon glyphicon-info-sign"></span> Видеоинструкция по шагу №2 </button>
+                <button class="btn btn-primary" (click)="switchSpoiler2()" *ngIf="showSpoiler2()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №2 </button>
+                <div *ngIf="showSpoiler2()">
+                    <br>
+                    Сейчас Вам необходимо обрезать фотографию под размер 21/30.
+                    <br>
+
+                    <br>
+                    <img src="/gif/94XhF9Ch3k.gif" width="1130" height="619" />
+                    <br>
+                    2.3. Для сохранения готового изображениия щелкните по нему правой кнопкой мыши и выберите пункт меню "Сохранить как..", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
+                    <br>
+                    <img src="/gif/y1np2rHUzF.gif" width="1019" height="623" />
+                    <br>
+                </div>
+                <button class="btn btn-primary" (click)="switchSpoiler2()" *ngIf="showSpoiler2()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №2 </button>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <h4 class="circe">ШАГ №3 - СЧИТЫВАЕМ ПОДПИСЬ ЗАЯВИТЕЛЯ</h4>
+                <button class="btn btn-primary" (click)="switchSpoiler3()" *ngIf="!showSpoiler3()"><span class="glyphicon glyphicon-info-sign"></span> Видеоинструкция по шагу №3 </button>
+                <button class="btn btn-primary" (click)="switchSpoiler3()" *ngIf="showSpoiler3()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №3 </button>
+                <div *ngIf="showSpoiler3()">
+                    <br>
+                    Для этого Вам потребуется программа MakeSign. Если на Вашем ПК она еще не установлена нажмите
+                    <a download href="/files/MakeSign.7z"><span class="glyphicon glyphicon-share-alt"></span> Архив MakeSign</a>
+                    <br>
+                    Разархивируйте его с помощью 7z
+                    <br>
+                    <img src="/gif/32LBdqfXVe.gif" width="872" height="280" />
+                    <br>
+                    3.1. Откройте папку и запустите run.exe
+                    <br>
+                    <img src="/gif/TN4pHeIrjw.gif" width="872" height="280" />
+                    <br>
+                    3.2. Нажмите "Сделать подпись" и попросите заявителя расписаться на планшете, после чего нажмите "ОК"
+                    <br>
+                    <img src="/gif/sG5CECm4kW.gif" width="872" height="562" />
+                    <br>
+                    3.3. Нажмите "Сохранить", запомните куда Вы сохраняете файл и введите имя файла как "ФамилиюИмяОтчествоДата рождения" заявителя.
+                    <br>
+                    <img src="/gif/HwuPvprpxy.gif" width="878" height="403" />
+                    <br>
+                </div>
+                <button class="btn btn-primary" (click)="switchSpoiler3()" *ngIf="showSpoiler3()"><span class="glyphicon glyphicon-remove"></span> Скрыть видеоинструкцию по шагу №3 </button>
+            </div>
+        </li>
+    </ul>
 </div>

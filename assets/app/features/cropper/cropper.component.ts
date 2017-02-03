@@ -12,6 +12,7 @@ export class CropperComponent {
     spoiler1 = false;
     spoiler2 = false;
     spoiler2_1 = false;
+    spoiler2_2 = false;
     spoiler3 = false;
 
     constructor() {
@@ -59,6 +60,18 @@ export class CropperComponent {
 
     showSpoiler2_1(){
         return this.spoiler2_1 != false;
+    }
+
+    switchSpoiler2_2(){
+        if (this.spoiler2_2){
+            this.spoiler2_2 = false
+        } else {
+            this.spoiler2_2 = true
+        }
+    }
+
+    showSpoiler2_2(){
+        return this.spoiler2_2 != false;
     }
 
     switchSpoiler3(){
