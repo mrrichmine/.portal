@@ -5,9 +5,10 @@ import {RouterModule}           from "@angular/router";
 import {ViewModule}             from "../views/view.module";
 import {UserModule}             from "./users/user.module";
 
+import {ImageCropperComponent}  from "ng2-img-cropper";
 import {FeatureComponent}       from "./feature.component";
 import {CropperComponent}       from "./cropper/cropper.component";
-import {ImageCropperComponent}  from "ng2-img-cropper";
+import {DownloadsComponent}     from "./downloads/downloads.component";
 
 import {featureRouting}         from "./feature.routing";
 
@@ -21,12 +22,14 @@ import {featureRouting}         from "./feature.routing";
     declarations: [
         FeatureComponent,
         CropperComponent,
-        ImageCropperComponent
+        ImageCropperComponent,
+        DownloadsComponent
     ],
     exports: [
         FeatureComponent,
         CropperComponent,
-        ImageCropperComponent
+        ImageCropperComponent,
+        DownloadsComponent
     ]
 })
 export class FeatureModule {

@@ -8,6 +8,9 @@
         <a routerLinkActive="active" ><a [routerLink]="[{ outlets: { featuredetails: ['user'] } }]"><span class="glyphicon glyphicon-user"></span> Пользователь: {{user?.firstName}} {{user?.parentName}} {{user?.lastName}}</a></a>
     </div>
     <div>
+        <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['downloads'] } }]"><span class="glyphicon glyphicon-floppy-disk"></span> Полезные загрузки</a></a>
+    </div>
+    <div>
     <a routerLinkActive="active"><a [routerLink]="[{ outlets: { featuredetails: ['cropper'] } }]"><span class="glyphicon glyphicon-camera"></span> Прием документов на замену Водительского Удостоверения</a></a>
     </div>
 </div>

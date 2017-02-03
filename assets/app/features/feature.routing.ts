@@ -4,6 +4,7 @@ import {UserComponent}          from "./users/user.component";
 import {SigninComponent}        from "./users/signin/signin.component";
 import {SignupComponent}        from "./users/signup/signup.component";
 import {CropperComponent}       from "./cropper/cropper.component";
+import {DownloadsComponent}     from "./downloads/downloads.component";
 
 
 const FEATURE_ROUTING: Routes = [
@@ -21,6 +22,10 @@ const FEATURE_ROUTING: Routes = [
     },
     {   path: 'cropper',
         component: CropperComponent,
+        outlet: 'featuredetails'
+    },
+    {   path: 'downloads',
+        component: DownloadsComponent,
         outlet: 'featuredetails'
     },
     {   path: '',
