@@ -27,11 +27,7 @@ export class CropperComponent {
     }
 
     switchSpoiler1(){
-        if (this.spoiler1){
-            this.spoiler1 = false
-        } else {
-            this.spoiler1 = true
-        }
+        this.spoiler1 = !this.spoiler1;
     }
 
     showSpoiler1(){
@@ -39,11 +35,7 @@ export class CropperComponent {
     }
 
     switchSpoiler2(){
-        if (this.spoiler2){
-            this.spoiler2 = false
-        } else {
-            this.spoiler2 = true
-        }
+        this.spoiler2 = !this.spoiler2;
     }
 
     showSpoiler2(){
@@ -51,11 +43,7 @@ export class CropperComponent {
     }
 
     switchSpoiler2_1(){
-        if (this.spoiler2_1){
-            this.spoiler2_1 = false
-        } else {
-            this.spoiler2_1 = true
-        }
+        this.spoiler2_1 = !this.spoiler2_1;
     }
 
     showSpoiler2_1(){
@@ -63,11 +51,7 @@ export class CropperComponent {
     }
 
     switchSpoiler2_2(){
-        if (this.spoiler2_2){
-            this.spoiler2_2 = false
-        } else {
-            this.spoiler2_2 = true
-        }
+        this.spoiler2_2 = !this.spoiler2_2;
     }
 
     showSpoiler2_2(){
@@ -75,11 +59,7 @@ export class CropperComponent {
     }
 
     switchSpoiler3(){
-        if (this.spoiler3){
-            this.spoiler3 = false
-        } else {
-            this.spoiler3 = true
-        }
+        this.spoiler3 = !this.spoiler3;
     }
 
     showSpoiler3(){
