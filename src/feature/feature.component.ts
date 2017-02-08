@@ -4,7 +4,7 @@ import {UserService} from "../user/user.service";
 import {User} from "../user/user.model";
 
 @Component({
-    selector: 'portal-feature',
+    selector: 'feature',
     templateUrl: 'feature.component.html'
 })
 export class FeatureComponent implements OnInit{

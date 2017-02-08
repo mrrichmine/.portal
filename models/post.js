@@ -7,4 +7,4 @@ var schema = new Schema({
   creator:  {type: Schema.Types.ObjectId, ref: 'User', required: true} // Создатель новости
 });
 
-module.exports = mongoose.model('News', schema);
+module.exports = mongoose.model('Post', schema);

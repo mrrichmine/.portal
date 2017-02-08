@@ -4,7 +4,7 @@ import {ReactiveFormsModule}    from "@angular/forms";
 
 import {UserComponent}          from "./user.component";
 import {User__SignupComponent}  from "./__signup/user__signup.component";
-import {User__SigninComponent}        from "./__signin/user__signin.component";
+import {User__SigninComponent}  from "./__signin/user__signin.component";
 
 import {userRouting}            from "./user.routing";
 

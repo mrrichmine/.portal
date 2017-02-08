@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-var News = require('../models/news');
+var Post = require('../models/post');
 
 // Добавление новости
 router.post('/', function (req, res) {
-  var news = new News({
+  var posts = new Post({
     header: req.body.header,
     text: req.body.text,
     creator: req.user.firstName.concat(' ', req.user.parentName, ' ', req.user.lastName)
   });
-  news.save(function(err, result) {
+  posts.save(function(err, result) {
     if (err) {
       return res.status(500).json({
         title: 'При публикации новости возникла ошибка соединения. Проверьте свое интернет-соединение и при необходимости обратитесь к Администратору.',
@@ -26,14 +26,14 @@ router.post('/', function (req, res) {
 
 // Получение списка новостей
 router.get('/', function (req, res) {
-  News.find(function (err, result) {
+  Post.find(function (err, posts) {
     if (err) {
       return res.status(500).json({
         title: 'При получении списка новостей возникла ошибка соединения. Проверьте свое интернет-соединение и при необходимости обратитесь к Администратору.',
         error: err
       });
     }
-    if (!result) {
+    if (!posts) {
       return res.status(404).json({
         title: 'Данные не найдены',
         error: err
@@ -41,7 +41,7 @@ router.get('/', function (req, res) {
     }
     res.status(200).json({
       message: 'Новости получены',
-      news: result
+      obj: posts
     });
   });
 });

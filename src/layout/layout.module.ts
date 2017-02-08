@@ -2,7 +2,7 @@ import {NgModule}                   from "@angular/core";
 import {CommonModule}               from "@angular/common";
 import {RouterModule}               from "@angular/router";
 
-import {FeatureModule}              from "../features/feature.module";
+import {FeatureModule}              from "../feature/feature.module";
 
 import {FillerComponent}            from "../filler/filler.component";
 import {LayoutComponent}            from "./layout.component";

@@ -8,7 +8,7 @@ import {LayoutModule}      from "../layout/layout.module";
 import {AppComponent}    from "./app.component";
 
 import {UserService}     from "../user/user.service";
-import {NewsService}     from "../news/news.service";
+import {PostService}     from "../post/post.service";
 
 
 @NgModule ({
@@ -23,7 +23,7 @@ import {NewsService}     from "../news/news.service";
     ],
     providers: [
         UserService,
-        NewsService
+        PostService
     ],
     bootstrap: [AppComponent]
 })
