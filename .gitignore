@@ -4,5 +4,6 @@
 .idea/
 node_modules/
 public/js/
-public/files
+public/files/
+public/gif/
 npm-debug.log*
