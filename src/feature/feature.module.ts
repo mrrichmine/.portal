@@ -3,7 +3,7 @@ import {CommonModule}           from "@angular/common";
 import {RouterModule}           from "@angular/router";
 
 import {UserModule}             from "../user/user.module";
-import {PostListModule}             from "../post-list/post-list.module";
+import {PostsModule}             from "../posts/posts.module";
 
 import {ImageCropperComponent}  from "ng2-img-cropper";
 import {FeatureComponent}       from "./feature.component";
@@ -17,7 +17,7 @@ import {featureRouting}         from "./feature.routing";
         CommonModule,
         RouterModule,
         UserModule,
-        PostListModule,
+        PostsModule,
         featureRouting
     ],
     declarations: [

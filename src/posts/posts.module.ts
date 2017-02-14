@@ -5,10 +5,10 @@ import {RouterModule}               from "@angular/router";
 
 import {PostModule}                 from "../post/post.module";
 
-import {PostListComponent}          from "./post-list.component";
-import {PostList__ListComponent}    from "./__list/post-list__list.component";
+import {PostsComponent}             from "./posts.component";
+import {Posts__ListComponent}       from "./__list/posts__list.component";
 
-import {postsRouting}               from "./post-list.routing";
+import {postsRouting}               from "./posts.routing";
 
 @NgModule({
     imports: [
@@ -19,14 +19,14 @@ import {postsRouting}               from "./post-list.routing";
         postsRouting
     ],
     declarations: [
-        PostListComponent,
-        PostList__ListComponent
+        PostsComponent,
+        Posts__ListComponent
     ],
     exports: [
-        PostListComponent,
-        PostList__ListComponent
+        PostsComponent,
+        Posts__ListComponent
     ]
 })
-export class PostListModule {
+export class PostsModule {
 
 }

@@ -5,10 +5,10 @@ import {PostService} from "../../post/post.service";
 import {Post} from "../../post/post.model";
 
 @Component({
-    selector: 'post-list__list',
-    template: `<post-template *ngFor="let post of posts"></post-template>`
+    selector: 'posts__list',
+    templateUrl: './posts__list.component.html'
 })
-export class PostList__ListComponent implements OnInit{
+export class Posts__ListComponent implements OnInit{
     posts: Post[];
 
     constructor (
@@ -19,7 +19,8 @@ export class PostList__ListComponent implements OnInit{
         this.postService.getPosts()
             .subscribe(
                 (posts: Post[]) => {
-                    this.posts = posts
+                    this.posts = posts;
+                    return this.posts
                 }
             );
     }

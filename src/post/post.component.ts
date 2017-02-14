@@ -1,11 +1,11 @@
-import {Component} from "@angular/core/";
+import {Component, Input}   from "@angular/core/";
 
-import {Post} from "./post.model";
+import {Post}               from "./post.model";
 
 @Component({
-    selector: 'post-template',
+    selector: 'post',
     templateUrl: './post.component.html'
 })
 export class PostComponent {
-    post: Post;
+    @Input() post: Post;
 }
