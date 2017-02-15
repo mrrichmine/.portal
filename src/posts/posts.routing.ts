@@ -7,15 +7,15 @@ import {Posts__PublishComponent} from "./__publish/posts__publish.component";
 const POSTS_ROUTES: Routes = [
     {   path: 'publish',
         component: Posts__PublishComponent,
-        outlet: 'posts__list'
+        outlet: 'posts__outlet'
     },
     {   path: 'details',
         component: Post__DetailsComponent,
-        outlet: 'posts__list'
+        outlet: 'posts__outlet'
     },
     {   path: '',
         component: Posts__ListComponent,
-        outlet: 'posts__list',
+        outlet: 'posts__outlet',
         pathMatch: 'full'
     }
 ];
