@@ -1,21 +1,23 @@
-import {NgModule}               from "@angular/core";
-import {CommonModule}           from "@angular/common";
-import {RouterModule}           from "@angular/router";
+import { NgModule }                 from "@angular/core";
+import { CommonModule }             from "@angular/common";
+import { RouterModule }             from "@angular/router";
 
-import {UserModule}             from "../user/user.module";
+import { UserModule }               from "../user/user.module";
+import { BranchesModule }           from "../branches/branches.module";
 
-import {ImageCropperComponent}  from "ng2-img-cropper";
-import {FeatureComponent}       from "./feature.component";
-import {CropperComponent}       from "../cropper/cropper.component";
-import {DownloadsComponent}     from "../downloads/downloads.component";
+import { ImageCropperComponent }    from "ng2-img-cropper";
+import { FeatureComponent }         from "./feature.component";
+import { CropperComponent }         from "../cropper/cropper.component";
+import { DownloadsComponent }       from "../downloads/downloads.component";
 
-import {featureRouting}         from "./feature.routing";
+import { featureRouting }           from "./feature.routing";
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         UserModule,
+        BranchesModule,
         featureRouting
     ],
     declarations: [

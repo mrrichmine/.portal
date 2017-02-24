@@ -1,0 +1,42 @@
+<h3 class="circe">ФИЛИАЛЫ</h3>
+<div class="row jumbotron">
+    <form (ngSubmit)="formSubmit()" [formGroup]="branchForm">
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <span class="glyphicon glyphicon-alert"></span>
+                Обязательные поля
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="name">Название филиала</label>
+                <input
+                        type="text"
+                        id="name"
+                        class="form-control"
+                        formControlName="name">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 form-group">
+                <label for="address">Адрес филиала</label>
+                <input
+                        type="text"
+                        id="address"
+                        class="form-control"
+                        formControlName="address">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 form-group">
+                <button
+                        class="btn btn-success"
+                        type="submit">
+                        <span class="glyphicon glyphicon-ok"></span>
+                        Создать филиал
+                </button>
+            </div>
+            <br>
+        </div>
+    </form>
+</div>

@@ -1,10 +1,12 @@
-import {Routes, RouterModule}   from "@angular/router";
+import { Routes, RouterModule }     from "@angular/router";
 
-import {UserComponent}          from "../user/user.component";
-import {User__SigninComponent}        from "../user/__signin/user__signin.component";
-import {User__SignupComponent}        from "../user/__signup/user__signup.component";
-import {CropperComponent}       from "../cropper/cropper.component";
-import {DownloadsComponent}     from "../downloads/downloads.component";
+import { UserComponent }            from "../user/user.component";
+import { User__SigninComponent }    from "../user/__signin/user__signin.component";
+import { User__SignupComponent }    from "../user/__signup/user__signup.component";
+import { CropperComponent }         from "../cropper/cropper.component";
+import { DownloadsComponent }       from "../downloads/downloads.component";
+import { BranchesComponent }        from "../branches/branches.component";
+
 
 
 const FEATURE_ROUTING: Routes = [
@@ -27,6 +29,10 @@ const FEATURE_ROUTING: Routes = [
     {   path: 'downloads',
         component: DownloadsComponent,
         outlet: 'featuredetails'
+    },
+    {   path: 'branches',
+        component: BranchesComponent,
+        outlet: 'featuredetails',
     },
     {   path: '',
         component: UserComponent,

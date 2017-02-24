@@ -13,6 +13,7 @@ var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
 var userRoutes = require('./routes/user');
+var branchRoutes = require('./routes/branch');
 var newsRoutes = require('./routes/news');
 var appRoutes = require('./routes/app');
 
@@ -49,6 +50,7 @@ app.use(function (req, res, next) {
 
 // Указываем Express.JS какие маршруты использовать при попадании в окна
 app.use('/user', userRoutes);
+app.use('/branch', branchRoutes);
 app.use('/news', newsRoutes);
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
 app.use('/', appRoutes);

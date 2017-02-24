@@ -1,14 +1,15 @@
-import {NgModule}        from "@angular/core";
-import {BrowserModule}   from "@angular/platform-browser";
-import {HttpModule}      from "@angular/http";
-import {FormsModule}     from "@angular/forms";
+import { NgModule }        from '@angular/core';
+import { BrowserModule }   from '@angular/platform-browser';
+import { HttpModule }      from '@angular/http';
+import { FormsModule }     from '@angular/forms';
 
-import {LayoutModule}      from "../layout/layout.module";
+import { LayoutModule }    from '../layout/layout.module';
 
-import {AppComponent}    from "./app.component";
+import { AppComponent }    from './app.component';
 
-import {UserService}     from "../user/user.service";
-import {NewsService}     from "../news/news.service";
+import { UserService }     from '../user/user.service';
+import { NewsService }     from '../news/news.service';
+import { BranchesService } from '../branches/branches.service';
 
 
 @NgModule ({
@@ -23,6 +24,7 @@ import {NewsService}     from "../news/news.service";
     ],
     providers: [
         UserService,
+        BranchesService,
         NewsService
     ],
     bootstrap: [AppComponent]
