@@ -1,8 +1,9 @@
-import { NgModule }               from "@angular/core";
-import { CommonModule }           from "@angular/common";
-import { ReactiveFormsModule }    from "@angular/forms";
+import { NgModule }                 from '@angular/core';
+import { CommonModule }             from '@angular/common';
+import { ReactiveFormsModule }      from '@angular/forms';
 
-import { BranchesComponent }      from "./branches.component";
+import { BranchesComponent }        from './branches.component';
+import { BranchesItemComponent }    from './__item/branches__item.component';
 
 @NgModule({
     imports: [
@@ -10,10 +11,12 @@ import { BranchesComponent }      from "./branches.component";
         ReactiveFormsModule
     ],
     declarations: [
-        BranchesComponent
+        BranchesComponent,
+        BranchesItemComponent
     ],
     exports: [
-        BranchesComponent
+        BranchesComponent,
+        BranchesItemComponent
     ]
 })
 

@@ -1,10 +1,10 @@
-import { Component }                from "@angular/core/src/metadata/directives";
-import { OnInit }                   from "@angular/core/src/metadata/lifecycle_hooks";
-import { FormGroup, FormControl }   from "@angular/forms/src/model";
+import { Component, Input }         from '@angular/core/src/metadata/directives';
+import { OnInit }                   from '@angular/core/src/metadata/lifecycle_hooks';
+import { FormGroup, FormControl }   from '@angular/forms/src/model';
 
 
-import { Branch }                   from "./branches.model";
-import { BranchesService }          from "./branches.service";
+import { Branch }                   from './branches.model';
+import { BranchesService }          from './branches.service';
 
 @Component({
     selector:    'branches.component',
@@ -14,6 +14,9 @@ export class BranchesComponent implements OnInit {
 
     // Создаем переменную для данных, введенных в форму
     branchForm: FormGroup;
+
+    // Создаем переменную для массива полученных из БД Филиалов
+    branches: Branch[];
 
     constructor ( private branchesService: BranchesService ) {}
 
@@ -47,16 +50,34 @@ export class BranchesComponent implements OnInit {
                     console.log(data);
                     // Очищение формы
                     this.formReset();
+                    // Загружаем список филиалов
+                    this.branchGet();
                 },
                 // Отрицательный ответ
                 error => {
-                    console.log('Ошибка при обращении к сервису: ' + error)
+                    console.log( 'Ошибка при обращении к сервису: ' + error )
+                }
+            );
+    }
+
+    // Загрузка списка филиалов
+    branchGet(){
+
+        this.branchesService.get()
+            .subscribe(
+                (branches: Branch[]) => {
+                    this.branches = branches;
+                    return this.branches
                 }
             );
     }
 
     ngOnInit() {
 
+        // Загружаем список филиалов
+        this.branchGet();
+
+        // Инициализируем форму для заполнения
         this.branchForm = new FormGroup({
             name:               new FormControl( null, [ ] ),
             address:            new FormControl( null, [ ] ),
