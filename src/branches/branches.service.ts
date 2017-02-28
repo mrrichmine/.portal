@@ -13,16 +13,16 @@ export class BranchesService {
     constructor( private http: Http ) {}
 
     // Создание нового Филиала
-    create
+    add
         ( branch: Branch ) {
 
         const body      = JSON.stringify( branch );
         const headers   = new Headers( { 'Content-Type': 'application/json' } );
 
-        return this.http.post( 'http://10.10.3.158:3000/branch/create', body, { headers: headers } )
+        return this.http.post( 'http://10.10.3.158:3000/branch/add', body, { headers: headers } )
             .map    ( ( response: Response )    => response.json() )
             .catch  ( ( error: Response )       => Observable.throw( error.json() ) );
-    }
+    } // add
 
     // Получение списка Филиалов
     get
@@ -41,7 +41,8 @@ export class BranchesService {
                         new Branch(
                             branch.name,
                             branch.address,
-                            branch.cartridge_store
+                            branch.cartridge_store,
+                            branch._id
                         )
                     );
                 }
@@ -49,6 +50,16 @@ export class BranchesService {
                 return recievedBranches
             } )
             .catch  ( ( error: Response )       => Observable.throw( error.json() ) );
-    }
+    } // get
 
+    // Удаление Филиала
+    erase
+        ( branch: Branch ) {
+
+        const headers   = new Headers( { 'Content-Type': 'application/json' } );
+
+        return this.http.delete( 'http://10.10.3.158:3000/branch/' + branch.branchId, { headers: headers } )
+            .map    ( ( response: Response )    => response.json() )
+            .catch  ( ( error: Response )       => Observable.throw( error.json() ) );
+    } //erase
 }

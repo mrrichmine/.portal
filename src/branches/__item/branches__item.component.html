@@ -1,6 +1,11 @@
+<div class="jumbotron list-group-item col-md-11">
 
-<div class="jumbotron">
-    {{branch.name}}<br>
+    <div class="circe">{{branch.name}}<br></div>
     {{branch.address}}<br>
-    {{branch.cartridge_store}}
+    {{branch.cartridge_store}}<br>
+
+</div>
+<div class="col-md-1">
+    <button class="btn btn-primary btn-block"
+            (click)="branchDelete()"><span class="glyphicon glyphicon-erase"></span></button>
 </div>

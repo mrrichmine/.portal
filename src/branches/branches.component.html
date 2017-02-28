@@ -40,6 +40,9 @@
         </div>
     </form>
 
-    <branches__item *ngFor="let branch of branches" [branch]="branch"></branches__item>
+    <branches__item *ngFor="let branch of branches" [branch]="branch">
+        <span class="glyphicon glyphicon-download"></span>
+        Загружаем список Филиалов
+    </branches__item>
 
 </div>

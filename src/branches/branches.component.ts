@@ -32,7 +32,7 @@ export class BranchesComponent implements OnInit {
         this.branchForm.reset()
     }
 
-    // Создание филиала
+    // Создание Филиала
     branchCreate(){
 
         // Cобираем объект Филиала по модели
@@ -43,7 +43,7 @@ export class BranchesComponent implements OnInit {
         );
 
         // Подписываемся на сервис создания Филиала
-        this.branchesService.create( branch )
+        this.branchesService.add( branch )
             .subscribe(
                 // Положительный ответ
                 data => {
@@ -60,7 +60,7 @@ export class BranchesComponent implements OnInit {
             );
     }
 
-    // Загрузка списка филиалов
+    // Загрузка списка Филиалов
     branchGet(){
 
         this.branchesService.get()
