@@ -12,10 +12,11 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
 // Задаем переменные для файлов маршрутизации из папки 'routes'
-var userRoutes = require('./routes/user');
-var branchRoutes = require('./routes/branch');
-var newsRoutes = require('./routes/news');
-var appRoutes = require('./routes/app');
+var userRoutes =            require( './routes/user' );
+var branchRoutes =          require( './routes/branch' );
+var cartridgestoreRoutes =  require( './routes/cartridge_store' );
+var newsRoutes =            require( './routes/news' );
+var appRoutes =             require( './routes/app' );
 
 //- Подключаемся к MongoDB на локальном сервере через Mongoose.JS -//
 // mongoose.connect('mongodb://localhost:27017/portal');
@@ -49,11 +50,12 @@ app.use(function (req, res, next) {
 });
 
 // Указываем Express.JS какие маршруты использовать при попадании в окна
-app.use('/user', userRoutes);
-app.use('/branch', branchRoutes);
-app.use('/news', newsRoutes);
+app.use( '/user',             userRoutes );
+app.use( '/branch',           branchRoutes );
+app.use( '/cartridge_store',  cartridgestoreRoutes );
+app.use( '/news',             newsRoutes );
 // Корневой маршрут всегда должен идти после всех остальных, потому-что он совпадает с любым иным маршрутом
-app.use('/', appRoutes);
+app.use( '/',                 appRoutes);
 
 // В любой непонятной ситуации №404 производится следующее действие
 app.use(function (req, res) {

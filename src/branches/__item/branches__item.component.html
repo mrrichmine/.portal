@@ -2,8 +2,12 @@
 
     <div class="circe">{{branch.name}}<br></div>
     {{branch.address}}<br>
-    {{branch.cartridge_store}}<br>
+    {{branch.cartridge_store}}
 
+</div>
+<div class="col-md-1">
+    <button class="btn btn-info btn-block"
+            (click)="branchCartridgeStore()"><span class="glyphicon glyphicon-folder-close"></span></button>
 </div>
 <div class="col-md-1">
     <button class="btn btn-primary btn-block"

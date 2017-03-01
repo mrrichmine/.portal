@@ -1,4 +1,4 @@
-import { Component, Input }         from '@angular/core/src/metadata/directives';
+import { Component }                from '@angular/core/src/metadata/directives';
 import { OnInit }                   from '@angular/core/src/metadata/lifecycle_hooks';
 import { FormGroup, FormControl }   from '@angular/forms/src/model';
 

@@ -56,7 +56,6 @@ router.get('/get', function (req, res) {
 // Удаление Филиала
 router.delete('/:id', function (req, res) {
   Branch.findById(req.params.id, function (err, branch) {
-    console.log(req.params.id);
     if ( err ) {
       return res.status(500).json({
         title: 'При удалении <- Филиала -> возникла ошибка.',

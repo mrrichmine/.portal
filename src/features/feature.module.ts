@@ -4,6 +4,7 @@ import { RouterModule }             from "@angular/router";
 
 import { UserModule }               from "../user/user.module";
 import { BranchesModule }           from "../branches/branches.module";
+import { CartridgeStoreModule }     from "../cartridge-store/cartridge-store.module";
 
 import { ImageCropperComponent }    from "ng2-img-cropper";
 import { FeatureComponent }         from "./feature.component";
@@ -18,6 +19,7 @@ import { featureRouting }           from "./feature.routing";
         RouterModule,
         UserModule,
         BranchesModule,
+        CartridgeStoreModule,
         featureRouting
     ],
     declarations: [

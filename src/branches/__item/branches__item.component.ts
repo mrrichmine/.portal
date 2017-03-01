@@ -1,10 +1,11 @@
-import { Component, Input }     from '@angular/core/src/metadata/directives';
+import { Component, Input }         from '@angular/core/src/metadata/directives';
 
-import { BranchesComponent }    from "../branches.component";
+import { BranchesComponent }        from "../branches.component";
 
-import { BranchesService }      from "../branches.service";
+import { BranchesService }          from "../branches.service";
+import { CartridgeStoreService }    from "../../cartridge-store/cartridge-store.service";
 
-import { Branch }               from '../branches.model';
+import { Branch }                   from '../branches.model';
 
 @Component({
     selector:    'branches__item',
@@ -14,15 +15,27 @@ export class BranchesItemComponent {
 
     @Input() branch: Branch;
 
-    constructor(private branchesService: BranchesService, private branchesComponent: BranchesComponent) {}
+    constructor(private branchesService: BranchesService, private cartridgestoreService: CartridgeStoreService, private branchesComponent: BranchesComponent) {}
 
-    // Удаление Филиала
-    branchDelete(){
+    // Создание Хранилища Картриджей в Филиале
+    branchCartridgeStore(){
 
-        this.branchesService.erase(this.branch)
+        this.cartridgestoreService.add( this.branch )
             .subscribe(
                 // При положительном ответе обновить список <- Филиалов ->
                 result => this.branchesComponent.branchGet()
             );
     }
+
+    // Удаление Филиала
+    branchDelete(){
+
+        this.branchesService.erase( this.branch )
+            .subscribe(
+                // При положительном ответе обновить список <- Филиалов ->
+                result => this.branchesComponent.branchGet()
+            );
+    }
+
+
 }
