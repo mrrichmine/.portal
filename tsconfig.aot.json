@@ -1,35 +1,39 @@
 {
   "compilerOptions": {
-    "baseUrl": "",
+
+    "target": "es5",
+    "module": "es2015",
+
+    "lib": ["es6", "dom"],
+
+    "moduleResolution": "node",
+
+    "declaration": false,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "removeComments": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es2015", "dom"],
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "noImplicitAny": false,
-    "outDir": "./public/js/app",
-    "removeComments": false,
-    "sourceMap": true,
+
     "suppressImplicitAnyIndexErrors": true,
-    "target": "es6",
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "skipLibCheck": true
+
   },
-
-  "files": [
-    "assets/app/app.module.ts",
-    "assets/app/main.ts"
-  ],
-
   "exclude": [
-    "node_modules",
-    "dist",
-    "assets/app/polyfills.ts"
-  ],
 
+    "node_modules"
+
+  ],
+  "files": [
+
+    "src/app/app.module.ts",
+    "src/main.ts"
+
+  ],
   "angularCompilerOptions": {
+
     "genDir": "aot",
     "skipMetadataEmit" : true
+
   }
 }

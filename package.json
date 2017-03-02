@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "build": "del-cli public/js/app && webpack --config webpack.config.dev.js --progress --profile --watch",
-    "build:prod": "del-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'public/js/app/**/*.js' 'public/js/app/**/*.js.map' '!public/js/app/bundle.js' '!public/js/app/*.chunk.js' 'assets/app/**/*.ngfactory.ts' 'assets/app/**/*.shim.ts'"
+    "build:test": "ngc -p tsconfig.aot.json",
+    "build:prod": "del-cli public/js/app && ngc -p tsconfig.aot.json && ngc -p tsconfig.aot.json && webpack --config webpack.config.prod.js --progress --profile --bail && del-cli 'public/js/app/**/*.js' 'public/js/app/**/*.js.map' '!public/js/app/bundle.js' '!public/js/app/*.chunk.js' 'aot/**/*.ngfactory.ts' 'aot/**/*.shim.ts'"
   },
   "dependencies": {
     "@angular/common": "2.4.1",
@@ -38,7 +39,6 @@
     "zone.js": "0.7.2"
   },
   "devDependencies": {
-    "@types/core-js": "0.9.35",
     "@types/node": "6.0.53",
     "angular2-router-loader": "0.3.4",
     "angular2-template-loader": "0.6.0",
@@ -46,8 +46,8 @@
     "del-cli": "0.2.1",
     "html-loader": "0.4.4",
     "raw-loader": "0.5.1",
-    "typescript": "2.1.4",
-    "webpack": "2.2.0-rc.3",
+    "typescript": "^2.2.1",
+    "webpack": "2.2.1",
     "webpack-merge": "2.0.0"
   },
   "repository": {

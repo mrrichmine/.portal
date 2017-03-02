@@ -1,40 +1,40 @@
 var webpack = require('webpack');
 
 module.exports = {
-  entry: {
-    'app': './src/main.ts'
-  },
+    entry: {
+        'app': './src/main.ts'
+    },
 
-  resolve: {
-    extensions: ['.js', '.ts']
-  },
+    resolve: {
+        extensions: ['.js', '.ts', '.css']
+    },
 
-  module: {
-    loaders: [
-      {
-        test: /\.ts$/,
+    module: {
         loaders: [
-          'awesome-typescript-loader',
-          'angular2-template-loader',
-          'angular2-router-loader'
+            {
+                test: /\.ts$/,
+                loaders: [
+                    'awesome-typescript-loader',
+                    'angular2-template-loader',
+                    'angular2-router-loader'
+                ]
+            },
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.css$/,
+                loader: 'raw-loader'
+            }
         ]
-      },
-      {
-        test: /\.html$/,
-        loader: 'html-loader'
-      },
-      {
-        test: /\.css$/,
-        loader: 'raw-loader'
-      }
-    ]
-  },
+    },
 
-  plugins: [
-    new webpack.ContextReplacementPlugin(
-      // The (\\|\/) piece accounts for path separators in *nix and Windows
-      /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
-      './src' // location of your src
-    )
-  ]
+    plugins: [
+        new webpack.ContextReplacementPlugin(
+            // The (\\|\/) piece accounts for path separators in *nix and Windows
+            /angular(\\|\/)core(\\|\/)(esm(\\|\/)src|src)(\\|\/)linker/,
+            './src' // location of your src
+        )
+    ]
 };
