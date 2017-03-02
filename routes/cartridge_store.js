@@ -1,33 +1,52 @@
 var express = require( 'express' );
 var router  = express.Router();
 
+var Branch          = require('../models/branch');
 var CartridgeStore  = require('../models/cartridge-store');
 
 // Создание Хранилища Картриджей
 router.post( '/add', function ( req, res ) {
 
-  // Cобираем объект Хранилища Картриджей по модели
-  var cartridge_store = new CartridgeStore({
-    branch:           req.body.branchId,
-    stock:            []
-  });
-
-  // Пытаемся сохранить объект в БД
-  cartridge_store.save( function ( err, result ) {
+  Branch.findById(req.body.branchId, function (err, branch) {
 
     // В случае возникновения ошибки
     if ( err ) {
       return res.status( 500 ).json({
-        title:  'При создании <- Хранилища Картриджей -> возникла ошибка',
+        title:  'При поиске <- Филиала -> возникла ошибка',
         error:  err
       });
     }
     // В случае положительного ответа
-    res.status( 201 ).json({
-      message:  '<- Хранилище Картриджей -> успешно создано',
-      obj:      result
+    // Cобираем объект Хранилища Картриджей по модели
+    var cartridge_store = new CartridgeStore({
+      branch:           req.body.branchId,
+      stock:            []
+    });
+
+    // Пытаемся сохранить объект в БД
+    cartridge_store.save( function ( err, result ) {
+
+      // В случае возникновения ошибки
+      if ( err ) {
+        return res.status( 500 ).json({
+          title:  'При создании <- Хранилища Картриджей -> возникла ошибка',
+          error:  err
+        });
+      }
+      // В случае положительного ответа
+
+      // Связь Хранилища Картриджей с Филиалом
+      branch.cartridge_store.push(result);
+      branch.save();
+
+      res.status( 201 ).json({
+        message:  '<- Хранилище Картриджей -> успешно создано',
+        obj:      result
+      });
     });
   });
+
+
 });
 
 // Получение списка Хранилищ Картриджей
