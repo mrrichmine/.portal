@@ -17,14 +17,21 @@ router.post( '/add', function ( req, res ) {
       });
     }
     // В случае положительного ответа
+    // Проверяем нет ли уже Хранилища Картриджей привязанного к этому Филиалу
+    if ( branch.cartridge_store != null ) {
+      return res.status( 500 ).json({
+        title:  'В <- Филиале -> уже есть <- Хранилище Картриджей ->',
+        error:  err
+      });
+    }
     // Cобираем объект Хранилища Картриджей по модели
     var cartridge_store = new CartridgeStore({
-      branch:           req.body.branchId,
+      branch:           branch._id,
       stock:            []
     });
 
     // Пытаемся сохранить объект в БД
-    cartridge_store.save( function ( err, result ) {
+    cartridge_store.save( function ( err, result_store ) {
 
       // В случае возникновения ошибки
       if ( err ) {
@@ -34,15 +41,24 @@ router.post( '/add', function ( req, res ) {
         });
       }
       // В случае положительного ответа
-
       // Связь Хранилища Картриджей с Филиалом
-      branch.cartridge_store.push(result);
-      branch.save();
+      Branch.findByIdAndUpdate( branch._id, { $set: { cartridge_store: result_store._id }}, { new: true }, function ( err, result_branch ) {
+        if ( err ) {
+          return res.status( 500 ).json({
+            title:  'При добавлении <- Хранилища Картриджей ->  в <- Филиал -> возникла ошибка',
+            error:  err
+          });
+        }
+        res.status( 201 ).json({
+          message:  '<- Хранилище Картриджей -> успешно добавлено в <- Филиал ->',
+          obj:      result_branch
+        });
 
-      res.status( 201 ).json({
-        message:  '<- Хранилище Картриджей -> успешно создано',
-        obj:      result
       });
+      // res.status( 201 ).json({
+      //   message:  '<- Хранилище Картриджей -> успешно создано',
+      //   obj:      result_store
+      // });
     });
   });
 

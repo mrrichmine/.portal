@@ -1,12 +1,14 @@
 <div class="jumbotron list-group-item col-md-11">
 
     <div class="circe">{{branch.name}}<br></div>
-    {{branch.address}}<br>
-    {{branch.cartridge_store}}
+    Адрес: {{branch.address}}<br>
+    ID Филиала: {{branch.branchId}}<br>
+    ID Хранилища картриджей: {{branch.cartridge_store}}
 
 </div>
 <div class="col-md-1">
     <button class="btn btn-info btn-block"
+            *ngIf="!haveCartridgeStore()"
             (click)="branchCartridgeStore()"><span class="glyphicon glyphicon-folder-close"></span></button>
 </div>
 <div class="col-md-1">

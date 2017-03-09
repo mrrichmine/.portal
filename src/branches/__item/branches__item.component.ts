@@ -15,12 +15,16 @@ export class BranchesItemComponent {
 
     @Input() branch: Branch;
 
-    constructor(private branchesService: BranchesService, private cartridgestoreService: CartridgeStoreService, private branchesComponent: BranchesComponent) {}
+    constructor(private branchesService: BranchesService,
+                private cartridgestoreService: CartridgeStoreService,
+                private branchesComponent: BranchesComponent) {
+    }
 
     // Создание Хранилища Картриджей в Филиале
-    branchCartridgeStore(){
+    branchCartridgeStore() {
 
-        this.cartridgestoreService.add( this.branch )
+        this.cartridgestoreService.add(this.branch)
+
             .subscribe(
                 // При положительном ответе обновить список <- Филиалов ->
                 result => this.branchesComponent.branchGet()
@@ -28,14 +32,18 @@ export class BranchesItemComponent {
     }
 
     // Удаление Филиала
-    branchDelete(){
+    branchDelete() {
 
-        this.branchesService.erase( this.branch )
+        this.branchesService.erase(this.branch)
             .subscribe(
                 // При положительном ответе обновить список <- Филиалов ->
                 result => this.branchesComponent.branchGet()
             );
     }
 
+    // Хранилище Картриджей еще не существует
+    haveCartridgeStore() {
+        return this.branch.cartridge_store !== null;
+    };
 
 }
